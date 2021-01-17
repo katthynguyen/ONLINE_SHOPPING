@@ -1,8 +1,8 @@
 <!-- <--?php $public = 'http://localhost/ECOMERCIAl/'; ?> -->
 <!-- //page -->
 <!-- checkout page -->
-<div class="privacy">
-<div class="container">
+<!-- <div class="privacy"> -->
+	<div class="container">
 		<!-- tittle heading -->
 		<h3 class="tittle-w3l">Card
 			<span class="heading-style">
@@ -103,9 +103,9 @@
 					
 				</div>
 				<div class="clearfix"> </div>
-			
+			</div>
 		</div>
 	</div>
 </div>
-</div>
+<!-- </div> -->
 <!-- //checkout page -->

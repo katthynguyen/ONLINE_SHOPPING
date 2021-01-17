@@ -26,11 +26,11 @@ class DataProvider{
 
 		$con = mysqli_connect($servername, $username,  $password);
 		mysqli_select_db($con,  $dbname);
-		mysqli_set_charset($con, 'UTF8');
+		mysqli_query($con, "set names 'utf8'");
+		// mysqli_set_charset($con, 'UTF8');
+
 		$result = mysqli_query($con, $sql);
-
 		mysqli_close($con);
-
 		return $result;
 	}
 	
