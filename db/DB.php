@@ -1,21 +1,36 @@
 <?php
 class DataProvider{
- 
-    
+	
+	public static function ExecuteQuery1($sql)
+	{
+
+		$servername = "localhost";
+		$username = "root";
+		$password = "123456789";
+		$dbname = "ecomercial";
+
+		$con = mysqli_connect($servername, $username,  $password);
+		mysqli_select_db($con,  $dbname);
+		mysqli_set_charset($con, 'UTF8');		
+		mysqli_query($con, $sql);
+		mysqli_close($con); 
+	}
+	
 	public static function ExecuteQuery($sql)
 	{
-		$connection = mysqli_connect('localhost','root','123456789') or
-			die ("couldn't connect to localhost");
 
-		
-		mysqli_select_db($connection, 'ecomercial');
-				
-		mysqli_query($connection, "set names 'utf8'");
-		
-		$result = mysqli_query($connection, $sql);
-		
-		mysqli_close($connection);
-		
+		$servername = "localhost";
+		$username = "root";
+		$password = "123456789";
+		$dbname = "ecomercial";
+
+		$con = mysqli_connect($servername, $username,  $password);
+		mysqli_select_db($con,  $dbname);
+		mysqli_set_charset($con, 'UTF8');
+		$result = mysqli_query($con, $sql);
+
+		mysqli_close($con);
+
 		return $result;
 	}
 	
@@ -24,6 +39,29 @@ class DataProvider{
 		echo '<script type = "text/javascript">';
 		echo 'location = "'.$path.'";';
 		echo '</script>';
+	}
+	public static function ExecuteNonQuery()
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "123456789";
+		$dbname = "ecomercial";
+
+		$con = mysqli_connect($servername, $username,  $password);
+		mysqli_select_db($con,  $dbname);
+		mysqli_set_charset($con, 'UTF8');		
+	}
+	public static function Close()
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "123456789";
+		$dbname = "ecomercial";
+
+		$con = mysqli_connect($servername, $username,  $password);
+		mysqli_select_db($con,  $dbname);
+		mysqli_set_charset($con, 'UTF8');		
+		mysqli_close($con);
 	}
 }
 

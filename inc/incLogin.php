@@ -19,7 +19,7 @@
 			<div class="contact-agileinfo">
 			
 				<div class="contact-form wthree" style="height:350px; width:500px;">
-					<a href="index.php?act=ChangePassword" style="padding-left:250px;"><u>Forgot password</u></a>
+					<a href="../index.php?act=ChangePassword" style="padding-left:250px;"><u>Forgot password</u></a>
 					
 					
 					<form name = "frmLogin" action="inc/XLLogin.php" method="POST" onSubmit="return KiemTraDangNhap()" >
@@ -38,8 +38,6 @@
 							</div>
 						</div>
 					</form>
-					
-					
 				</div>
 			</div>
 

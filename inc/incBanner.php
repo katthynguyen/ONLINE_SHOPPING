@@ -43,11 +43,7 @@
                         <a href="inc/XLLogout.php">
                             <span class="fa fa-pencil-square-o"></span> Log out </a>
                     </li>
-                    <li>
-                        <a href="index.php?act=Checkout">
-                            <i class="fa fa-cart-arrow-down" style="color:orangered; size: 100px;"></i> </a>
-                    </li>
-
+                    
                 <?php } ?>
             </ul>
         </div>
@@ -65,20 +61,18 @@
             </form> 
         </div>
         <!-- //search -->
+
         <!-- cart details -->
         <div class="top_nav_right" style="margin-top:-65px;">
             <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                <form action="#" method="post" class="last">
-                    <input type="hidden" name="cmd" value="_cart">
-                    <input type="hidden" name="display" value="1">
-                    <button class="w3view-cart" type="submit" name="submit" value="">
+            <a href="index.php?act=Checkout" class="btn btn-warning btn-lg " role="button" aria-disabled="true" style="background-color: orange;">
+                    <!-- <a class="w3view-cart" type="submit" name="submit" value="" class="last"> -->
                         <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                    </button>
-                </form>
+            </a>
             </div>
         </div>
         <!-- //cart details -->
-        <div class="clearfix"></div>
+     <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>
 </div>

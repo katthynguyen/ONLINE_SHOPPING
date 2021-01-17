@@ -3,7 +3,7 @@ if (isset($_GET["id"]) == false)
 	DataProvider::ChangeURL("index.php");
 
 $id = $_GET["id"];
-$query = "SELECT s.MaSanPham, s.TenSanPham, s.HinhURL, s.GiaSanPham, s.SoLuongTon, s.SoLuocXem, s.MoTa, s.SoLuongBan, s.NgayNhap,l.TenLoaiSanPham, h.TenHangSanXuat, h.LogoURL
+$query = "SELECT s.MaSanPham, s.TenSanPham, s.HinhURL, s.GiaSanPham, s.SoLuongTon, s.SoLuocXem, s.MoTa, s.SoLuongBan, s.NgayNhap,l.TenLoaiSanPham, h.TenHangSanXuat, h.LogoURL, h.MaHangSanXuat, l.MaLoaiSanPham
 			FROM SanPham s, LoaiSanPham l, HangSanXuat h
 			WHERE s.MaLoaiSanPham = l.MaLoaiSanPham AND s.MaHangSanXuat = h.MaHangSanXuat AND s.MaSanPham = $id";
 $Product = DataProvider::ExecuteQuery($query);
@@ -74,7 +74,7 @@ if ($row == null)
 									$query = 	"UPDATE SanPham 
 												SET SoLuotXem = $soluocxem 
 												WHERE MaSanPham = $id";
-									DataProvider::ExecuteQuery($query);
+									$kq = DataProvider::ExecuteQuery($query);
 								?>
 							</b>
 						</li>
@@ -84,31 +84,21 @@ if ($row == null)
 
 					</ul>
 				</div>
-				
-				<div class="occasion-cart" style="margin-top: 30px; margin-left:120px; margin-bottom:30px;">
-					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-						<form action="#" method="post">
-							<fieldset>
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Zeeba Premium Basmati Rice - 5 KG" />
-								<input type="hidden" name="amount" value="950.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
-								<input type="hidden" name="return" value=" " />
-								<input type="hidden" name="cancel_return" value=" " />
-								<input type="submit" name="submit" value="Add to cart" class="button" />
-							</fieldset>
-						</form>
-					</div>
+				<?php if(isset($_SESSION["MaTaiKhoan"]) == true){?>
 
-				</div>
+					<div class="occasion-cart" style="margin-top: 30px; margin-left:120px; margin-bottom:30px;">
+					
+					<a href="pages/XLAddToCard.php?id=<?php echo $id?>" role="button" class="btn btn-primary" style="width:200px;height:50px;background-color:deepskyblue; font-size:20px;text-align:center">
+						Add to cart
+					</a>
+					
+					</div>
+				<?php  }?>
 				<div id="Infor-Product" style="margin-left:-300px">
 
 					<div class="product-single-w3l">
 						<span style="color: black;">
-						<a href=""><img src="images/<?php echo $row["LogoURL"] ?>" style="width:40px; height:30px">
+						<a href="index.php?act=Producer&id=<?php echo $row["MaHangSanXuat"] ?>"><img src="images/<?php echo $row["LogoURL"] ?>" style="width:40px; height:30px">
 						<?php echo $row["TenHangSanXuat"]?></a>
 						</span>
 					</div>
@@ -117,7 +107,7 @@ if ($row == null)
 							<b style="padding-left: 300px; font-size:30px">Describers</b>
 						<ul>
 							<li>
-								Category: <?php echo $row["TenLoaiSanPham"]?>
+								Category: <a href="index.php?act=Category&id=<?php echo $row["MaLoaiSanPham"]?>"><?php echo $row["TenLoaiSanPham"]?></a>
 							</li>
 							<li>
 								Time Date: <?php echo $row["NgayNhap"]?>

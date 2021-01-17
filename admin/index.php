@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("../code/DataProvider.php");
+	include("../db/DB.php");
 	
 	//Kiểm tra có đăng nhập với quyền Admin chưa?
 	if(isset($_SESSION["MaTaiKhoan"]) != true)

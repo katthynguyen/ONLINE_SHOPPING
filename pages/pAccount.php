@@ -2,7 +2,7 @@
 if (isset($_SESSION["MaTaiKhoan"]) == false)
 	DataProvider::ChangeURL("index.php");
 $user_id = $_SESSION["MaTaiKhoan"];
-$query = "	SELECT TenHienThi, DienThoai, DiaChi, Email, MatKhau, TenDangNhap
+$query = "	SELECT MaTaiKhoan,TenDangNhap,TenHienThi, DienThoai, DiaChi, Email, MatKhau, TenDangNhap
 			FROM TaiKhoan  
 			WHERE MaTaiKhoan = $user_id";
 $account = DataProvider::ExecuteQuery($query);
@@ -10,6 +10,7 @@ $row = mysqli_fetch_assoc($account);
 if ($row == null)
 	DataProvider::ChangeURL("index.php");
 ?>
+
 <div class="account">
 	<!-- Single Page -->
 	<div class="banner-bootom-w3-agileits">
@@ -71,38 +72,44 @@ if ($row == null)
 					</br>
 					<div class="product-single-w3l">
 
-						<form style="margin-top:50px;">
+						<form style="margin-top:50px;" name="frmAccount" action="inc/XLAccount.php" method="POST">
+							<div class="form-group">
+								<label for="Id">UserId </label>
+								<input style="text-align: center;" class="form-control" type="text" name="Id" id="Id" placeholder="Id" value="<?php echo $row["MaTaiKhoan"] ?> " readonly>
+							</div>
+							<div class="form-group">
+								<label for="username">Username </label>
+								<input style="text-align: center;" class="form-control" type="text" name="username" id="username" placeholder="username" value="<?php echo $row["TenDangNhap"] ?>" readonly>
+							</div>
 							<div class="form-group">
 								<label for="displayname">Displayname </label>
-								<input class="form-control" type="text" name="displayname" id="displayname" placeholder="displayname" value="<?php echo $row["TenHienThi"] ?>">
+								<input style="text-align: center;" class="form-control" type="text" name="displayname" id="displayname" placeholder="displayname" value="<?php echo $row["TenHienThi"] ?>">
 							</div>
 							<div class="form-group">
 								<label for="phone">Phone Numbers</label>
-								<input class="form-control" type="text" name="phone" id="phone" placeholder="your phone numbers" value="<?php echo $row["DienThoai"] ?>">
+								<input style="text-align: center;" class="form-control" type="text" name="phone" id="phone" placeholder="your phone numbers" value="<?php echo $row["DienThoai"] ?>">
 							</div>
 							<div class="form-group">
 								<label for="address">
 									<Address>Address</Address>
 								</label>
-								<input class="form-control" type="text" name="address" id="address" placeholder="your address" value="<?php echo  $row["DiaChi"] ?>">
+								<input style="text-align: center;" class="form-control" type="text" name="address" id="address" placeholder="your address" value="<?php echo  $row["DiaChi"] ?>">
 							</div>
 							<div class="form-group">
 								<label for="email">Email address</label>
-								<input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?php echo $row["Email"] ?>">
+								<input style="text-align: center;" type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?php echo $row["Email"] ?>" readonly>
 								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 							</div>
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $row["MatKhau"] ?>">
-							</div>
-
-
+							
 							<div class="container bg-light">
 								<div class="col-md-4 text-center">
-									<input type="submit" class="btn btn-primary" value="edit">
+									<input type="submit" class="btn btn-primary" value="save changes">
 								</div>
 							</div>
 						</form>
+								
+							<a href="index.php?act=ChangePassword" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="margin-top: 20px;width:100%">Change password</a>
+						
 					</div>
 				</div>
 			</div>

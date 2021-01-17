@@ -1,10 +1,11 @@
 <?php
     session_start();
-    include("../db/DB.php");
+    include "../db/DB.php";
 
-    if(isset($_GET["id"]) == false)
-        DataProvider::ChangeURL("../index.php?act=Login&id=3");
 
+    if(isset($_GET["id"]) == false){
+       DataProvider::ChangeURL("../index.php?act=Error&id=3");
+    }
     $id = $_GET["id"];
 
     // chưa có tài khoản và giỏ hàng

@@ -21,27 +21,25 @@
 					</br>
 					<div class="product-single-w3l">
 						</br>
-						<form>
-							<div class="form-group">
-								<label for="username">email </label>
-								<input type="text" class="form-control" name="username" id="username" placeholder="displayname" value="Katthy">
-							</div>							
-							
+						<form action="inc/XLPassword.php" method="POST">
+						<div class="form-group">
+								<label for="username">Username</label>
+								<input style="text-align: center;"  type="text" class="form-control" name="username" id="username" placeholder="username" >
+							</div>	
 							<div class="form-group">
 								<label for="password">Password</label>
 								<input type="password" class="form-control" name="password" id="password" placeholder="Password">
 							</div>
 							<div class="form-group">
-								<label for="password">Confirm Password</label>
-								<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+								<label for="password1">Confirm Password</label>
+								<input type="password" class="form-control" name="password1" id="password1" placeholder="Password1">
 							</div>
 							<div class="container bg-light">
 								<div class="col-md-4 text-center">
-									<input type="submit" class="btn btn-primary" value="Save">
+									<input type="submit" class="btn btn-primary" value="Save changes ">
 								</div>
 							</div>
-						</form>
-	
+						</form>	
 					</div>
 				</div>
 			</div>

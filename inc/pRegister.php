@@ -16,7 +16,7 @@
 				<div class="product-single-w3l">
 
 					<div class="contact-form wthree">
-						<form name="frmRegister" action="inc/XLRegister.php" method="POST">
+						<form name="frmRegister"  method="POST" action="inc/XLRegister.php">
 							<div class="form-group">
 								<label for="username">Username </label>
 								<input  class="form-control" type="text" name = "username" id="username" placeholder="username" >
@@ -53,7 +53,7 @@
 							</div>
 							<div class="container bg-light">
 								<div class="col-md-3 text-center">
-									<button type="submit" class="btn btn-primary">Sign Up</button>
+									<input type="submit" class="btn btn-primary" value = "Sign up">
 								</div>
 							</div>
 
